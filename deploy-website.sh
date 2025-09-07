@@ -1,14 +1,18 @@
 #!/bin/bash
 
-# Remove default Apache page
-sudo rm -rf /var/www/html/*
+# Enable and start Apache
+systemctl enable apache2
+systemctl start apache2
 
-# Clone your GitHub repository into Apache web directory
-sudo git clone https://github.com/Learn14-know/ProjectT /var/www/html
+# Remove default Apache index page
+rm -f /var/www/html/index.html
 
-# Set proper permissions so Apache can serve the files
-sudo chown -R www-data:www-data /var/www/html
-sudo chmod -R 755 /var/www/html
+# Option 1: Clone entire repository (recommended if multiple files)
+rm -rf /var/www/html/projectT
+git clone https://github.com/Learn14-know/projectT.git /var/www/html/
 
-# Restart Apache to apply changes
-sudo systemctl restart apache2
+
+
+# Set proper permissions
+chown -R www-data:www-data /var/www/html/projectT
+chmod -R 755 /var/www/html/projectT
