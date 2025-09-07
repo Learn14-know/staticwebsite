@@ -15,7 +15,7 @@ systemctl start apache2
 rm -rf /var/www/html/*
 
 # Clone projectT repository into /var/www/html
-git clone https://github.com/<username>/projectT.git /var/www/html
+git clone https://github.com/Learn14-know/projectT.git /var/www/html
 
 # Optional: if your repo has a subfolder, move contents to root
 # mv /var/www/html/projectT/* /var/www/html/
