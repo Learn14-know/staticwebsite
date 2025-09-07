@@ -1,18 +1,27 @@
 #!/bin/bash
 
-# Enable and start Apache
+# Exit on any error
+set -e
+
+# Update package index and install Apache + Git
+apt-get update -y
+apt-get install -y apache2 git
+
+# Start and enable Apache
 systemctl enable apache2
 systemctl start apache2
 
-# Remove default Apache index page
-rm -f /var/www/html/index.html
+# Remove all default web files
+rm -rf /var/www/html/*
 
-# Option 1: Clone entire repository (recommended if multiple files)
-rm -rf /var/www/html/projectT
-git clone https://github.com/Learn14-know/projectT.git /var/www/html/
+# Clone projectT repository into /var/www/html
+git clone https://github.com/<username>/projectT.git /var/www/html
 
+# Optional: if your repo has a subfolder, move contents to root
+# mv /var/www/html/projectT/* /var/www/html/
+# rm -rf /var/www/html/projectT
 
+# Fix ownership and permissions
+chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html
 
-# Set proper permissions
-chown -R www-data:www-data /var/www/html/projectT
-chmod -R 755 /var/www/html/projectT
