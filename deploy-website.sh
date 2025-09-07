@@ -8,7 +8,7 @@ sudo apt-get install -y apache2 git
 sudo rm -rf /var/www/html/*
 
 # Clone your GitHub repository into Apache web directory
-sudo git clone https://github.com/Learn14-know/ProjectT.git /var/www/html
+sudo git clone https://github.com/Learn14-know/ProjectT /var/www/html
 
 # Set proper permissions so Apache can serve the files
 sudo chown -R www-data:www-data /var/www/html
