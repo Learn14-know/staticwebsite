@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Update package list and install Apache and Git
-sudo apt-get update
-sudo apt-get install -y apache2 git
-
 # Remove default Apache page
 sudo rm -rf /var/www/html/*
 
